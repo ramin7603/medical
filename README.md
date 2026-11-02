@@ -24,45 +24,6 @@ This project is designed as a practical front-end learning project to demonstrat
 - Professional layout suitable for medical and healthcare websites
 - Free hosting using GitHub Pages
 
-## 🎯 Project Goals
-
-The main goal of this project is to practice and improve front-end development skills through building a real-world website template.
-
-By working on this project, you can practice:
-
-- Writing semantic HTML5
-- Understanding and using Tailwind CSS utility classes
-- Creating responsive layouts
-- Working with Flexbox and CSS Grid
-- Organizing website sections
-- Building user-friendly interfaces
-- Deploying a static website using GitHub Pages
-
-## 🚀 Getting Started
-
-Follow these steps to run the project locally.
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/ramin7603/medical.git
-```
-
-### 2. Navigate to the Project Directory
-
-```bash
-cd medical
-```
-
-### 3. Open the Project
-
-Open the `index.html` file in your browser.
-
-## 📚 Educational Use
-
-This project can be used as a learning resource for beginner and intermediate front-end developers who want to improve their HTML and Tailwind CSS skills.
-
-Feel free to explore the source code, experiment with the design, and customize the template for your own projects.
 
 ## 🌍 Deployment
 
