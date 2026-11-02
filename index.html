@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کلینیک آویسنا | مرجع تخصصی سلامت شما</title>
+<meta name="description" content="کلینیک تخصصی آویسنا؛ ویزیت آنلاین و حضوری، پزشکان متخصص و خدمات درمانی مدرن">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Vazirmatn','sans-serif'], mono: ['Space Grotesk','monospace'] },
+        colors: {
+          canon: { 50:'#F4F8F6', 100:'#E4EEEA', 200:'#C3DCD3', 300:'#96C1B2', 400:'#5E9C88', 500:'#2F7A64', 600:'#1F5E4F', 700:'#194A3F', 800:'#123830', 900:'#0B2521' },
+          saffron: { 300:'#F2CD8A', 400:'#E8B35A', 500:'#D99A38', 600:'#B87C24' },
+          sand: { 50:'#FBF8F1', 100:'#F6F0E3', 200:'#EEE4CE' }
+        },
+        boxShadow: { glass: '0 8px 32px 0 rgba(11,37,33,0.15)' },
+        keyframes: {
+          float: { '0%,100%':{ transform:'translateY(0px)'}, '50%':{ transform:'translateY(-14px)'} },
+          floatSlow: { '0%,100%':{ transform:'translateY(0px) rotate(0deg)'}, '50%':{ transform:'translateY(-8px) rotate(2deg)'} },
+          spinSlow: { from:{ transform:'rotate(0deg)'}, to:{ transform:'rotate(360deg)'} },
+          spinRevSlow: { from:{ transform:'rotate(360deg)'}, to:{ transform:'rotate(0deg)'} },
+          pulseDot: { '0%,100%':{ opacity:1, transform:'scale(1)'}, '50%':{ opacity:0.6, transform:'scale(1.4)'} },
+          drawLine: { to:{ 'stroke-dashoffset':0 } },
+          fadeUp: { from:{ opacity:0, transform:'translateY(24px)'}, to:{ opacity:1, transform:'translateY(0)'} },
+          blob: { '0%,100%':{ borderRadius:'42% 58% 65% 35% / 45% 40% 60% 55%'}, '50%':{ borderRadius:'58% 42% 35% 65% / 55% 60% 40% 45%'} }
+        },
+        animation: {
+          float: 'float 6s ease-in-out infinite',
+          floatSlow: 'floatSlow 8s ease-in-out infinite',
+          spinSlow: 'spinSlow 18s linear infinite',
+          spinRevSlow: 'spinRevSlow 24s linear infinite',
+          pulseDot: 'pulseDot 2s ease-in-out infinite',
+          fadeUp: 'fadeUp .8s ease forwards',
+          blob: 'blob 9s ease-in-out infinite'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-feature-settings: "ss01"; }
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,0.35); }
+  .dark .glass { background: rgba(18,56,48,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-nav { background: rgba(251,248,241,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .dark .glass-nav { background: rgba(11,37,33,0.65); }
+  .badge-float { animation: float 6s ease-in-out infinite; }
+  .badge-float-delay { animation: float 7s ease-in-out infinite; animation-delay: 1.2s; }
+  .pulse-path { stroke-dasharray: 900; stroke-dashoffset: 900; animation: drawLine 3.2s ease-out forwards 0.4s; }
+  .reveal { animation: fadeUp .8s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; } }
+  .r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}.r4{animation-delay:.35s}
+  ::selection { background: #D99A38; color:#0B2521; }
+  .blob-mask{ animation: blob 9s ease-in-out infinite; }
+  ::-webkit-scrollbar{ width:9px; }
+  ::-webkit-scrollbar-thumb{ background:#96C1B2; border-radius:99px; }
+  .dark ::-webkit-scrollbar-thumb{ background:#1F5E4F; }
+</style>
+</head>
+<body class="bg-sand-50 dark:bg-canon-900 text-canon-900 dark:text-sand-100 font-sans transition-colors duration-500">
+
+<!-- ================= NAVBAR ================= -->
+<header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-canon-100/60 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="relative w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold text-lg">آ
+        <span class="absolute -inset-1 rounded-2xl border border-canon-400/40 animate-spinSlow"></span>
+      </span>
+      <div class="leading-tight">
+        <p class="font-extrabold text-lg">کلینیک آویسنا</p>
+        <p class="text-[11px] tracking-widest text-canon-500 dark:text-saffron-300 font-mono uppercase">AVICENNA CLINIC</p>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium">
+      <a href="#services" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">خدمات</a>
+      <a href="#doctors" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">پزشکان</a>
+      <a href="product.html" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">محصولات و بسته‌ها</a>
+      <a href="blog.html" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">مجله سلامت</a>
+      <a href="#contact" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">تماس با ما</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" aria-label="تغییر پوسته" class="w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+        <svg id="iconSun" class="w-5 h-5 text-saffron-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+        <svg id="iconMoon" class="w-5 h-5 text-canon-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="login.html" class="hidden sm:inline-block px-4 py-2 rounded-full text-sm font-semibold border border-canon-300 dark:border-white/15 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">ورود</a>
+      <a href="signup.html" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-canon-600 text-sand-50 hover:bg-canon-700 shadow-lg shadow-canon-600/25 transition-all hover:-translate-y-0.5">نوبت‌دهی آنلاین</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="relative pt-40 pb-24 overflow-hidden">
+  <div class="absolute -top-32 -left-40 w-[30rem] h-[30rem] bg-canon-200/50 dark:bg-canon-700/30 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-20 right-0 w-[26rem] h-[26rem] bg-saffron-300/30 dark:bg-saffron-500/10 rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16 items-center relative">
+    <div class="reveal r1 order-2 lg:order-1">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass shadow-glass text-xs font-bold text-canon-600 dark:text-saffron-300 font-mono tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-canon-500 dark:bg-saffron-400 animate-pulseDot"></span>
+        از سال ۱۳۹۲ | به سبک قانون ابن‌سینا در طب امروز
+      </span>
+      <h1 class="mt-6 text-4xl md:text-6xl font-black leading-[1.15] tracking-tight">
+        دقتِ علم،<br>
+        <span class="text-canon-600 dark:text-saffron-400">آرامشِ درمان</span>
+      </h1>
+      <p class="mt-6 text-base md:text-lg text-canon-700/90 dark:text-sand-200/80 max-w-lg leading-loose">
+        بیش از ۴۰ پزشک متخصص، تجهیزات تشخیصی روز دنیا و پرونده سلامت دیجیتال؛
+        کلینیک آویسنا مسیر درمان شما را از اولین مشاوره تا بهبودی کامل همراهی می‌کند.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="signup.html" class="px-7 py-3.5 rounded-full bg-canon-600 text-sand-50 font-bold shadow-xl shadow-canon-600/30 hover:bg-canon-700 hover:-translate-y-1 transition-all">
+          رزرو نوبت رایگان
+        </a>
+        <a href="#services" class="px-7 py-3.5 rounded-full border-2 border-canon-300 dark:border-white/15 font-bold hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">
+          مشاهده خدمات ←
+        </a>
+      </div>
+
+      <div class="mt-12 flex items-center gap-8 flex-wrap">
+        <div>
+          <p class="text-3xl font-black font-mono text-canon-700 dark:text-saffron-300">۹۸٪</p>
+          <p class="text-xs text-canon-600/70 dark:text-sand-300/70 mt-1">رضایت بیماران</p>
+        </div>
+        <div class="w-px h-10 bg-canon-200 dark:bg-white/10"></div>
+        <div>
+          <p class="text-3xl font-black font-mono text-canon-700 dark:text-saffron-300">۴۰+</p>
+          <p class="text-xs text-canon-600/70 dark:text-sand-300/70 mt-1">پزشک متخصص</p>
+        </div>
+        <div class="w-px h-10 bg-canon-200 dark:bg-white/10"></div>
+        <div>
+          <p class="text-3xl font-black font-mono text-canon-700 dark:text-saffron-300">۲۴/۷</p>
+          <p class="text-xs text-canon-600/70 dark:text-sand-300/70 mt-1">پشتیبانی آنلاین</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero image + orbiting animation -->
+    <div class="order-1 lg:order-2 relative reveal r2 flex justify-center">
+      <div class="relative w-[19rem] h-[19rem] sm:w-[24rem] sm:h-[24rem]">
+        <!-- dashed rotating rings -->
+        <div class="absolute -inset-6 rounded-full border-2 border-dashed border-canon-300/70 dark:border-saffron-400/30 animate-spinSlow"></div>
+        <div class="absolute -inset-12 rounded-full border border-canon-200/60 dark:border-white/10 animate-spinRevSlow"></div>
+
+        <!-- pulse ecg line behind -->
+        <svg class="absolute -inset-10 w-[calc(100%+5rem)] h-[calc(100%+5rem)] opacity-40 dark:opacity-30" viewBox="0 0 400 400" fill="none">
+          <path class="pulse-path" d="M20 200 H140 L165 120 L200 280 L230 160 L250 200 H380" stroke="#2F7A64" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- blob framed photo -->
+        <div class="absolute inset-4 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/40 dark:ring-white/10">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=900&auto=format&fit=crop" alt="پزشک متخصص کلینیک آویسنا" class="w-full h-full object-cover object-center">
+        </div>
+
+        <!-- floating glass badges -->
+        <div class="absolute -right-6 top-6 badge-float glass shadow-glass rounded-2xl px-4 py-3 flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-full bg-canon-500/15 flex items-center justify-center text-canon-600 dark:text-saffron-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+          <div>
+            <p class="text-xs font-bold">۱۵ سال تجربه</p>
+            <p class="text-[10px] text-canon-500 dark:text-sand-300/70">تخصص قلب و عروق</p>
+          </div>
+        </div>
+
+        <div class="absolute -left-8 bottom-10 badge-float-delay glass shadow-glass rounded-2xl px-4 py-3 flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-full bg-saffron-400/20 flex items-center justify-center text-saffron-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+          <div>
+            <p class="text-xs font-bold">تاییدیه وزارت بهداشت</p>
+            <p class="text-[10px] text-canon-500 dark:text-sand-300/70">استاندارد درمانی</p>
+          </div>
+        </div>
+
+        <div class="absolute left-1/2 -translate-x-1/2 -bottom-6 badge-float glass shadow-glass rounded-full px-4 py-2 flex items-center gap-2 text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulseDot"></span>
+          آنلاین برای مشاوره
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUSTED / PARTNERS STRIP ================= -->
+<section class="border-y border-canon-100 dark:border-white/5 bg-canon-50/60 dark:bg-white/[0.02] py-6">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-wrap items-center justify-between gap-6 text-canon-500/70 dark:text-sand-300/50 text-sm font-mono tracking-wide">
+    <span>مورد اعتماد بیش از ۱۲۰,۰۰۰ بیمار در سراسر کشور</span>
+    <div class="flex gap-8 flex-wrap">
+      <span>بیمه ایران</span><span>بیمه سامان</span><span>بیمه دانا</span><span>بیمه آسیا</span><span>تامین اجتماعی</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-28 max-w-7xl mx-auto px-5 md:px-8">
+  <div class="text-center max-w-2xl mx-auto reveal r1">
+    <span class="text-xs font-mono font-bold tracking-[0.2em] text-saffron-600 dark:text-saffron-400 uppercase">SERVICES</span>
+    <h2 class="mt-4 text-3xl md:text-4xl font-black">تخصص‌هایی که به آن‌ها اطمینان دارید</h2>
+    <p class="mt-4 text-canon-600/80 dark:text-sand-300/70">از مشاوره آنلاین تا جراحی تخصصی؛ هر خدمت زیر تیمی مستقل از پزشکان متخصص همان حوزه دارد.</p>
+  </div>
+
+  <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="reveal r1 group relative rounded-3xl p-7 glass shadow-glass hover:-translate-y-2 transition-all duration-300">
+      <div class="w-14 h-14 rounded-2xl bg-canon-600 text-sand-50 flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 10-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      </div>
+      <h3 class="text-lg font-bold">قلب و عروق</h3>
+      <p class="mt-2.5 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">اکوکاردیوگرافی، نوار قلب و پیگیری فشار خون با جدیدترین دستگاه‌های تشخیصی.</p>
+      <a href="product.html" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-canon-600 dark:text-saffron-300">جزئیات بیشتر <span>←</span></a>
+    </div>
+
+    <div class="reveal r2 group relative rounded-3xl p-7 glass shadow-glass hover:-translate-y-2 transition-all duration-300">
+      <div class="w-14 h-14 rounded-2xl bg-saffron-500 text-canon-900 flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.38-1.067-3.61L5 14.5"/></svg>
+      </div>
+      <h3 class="text-lg font-bold">آزمایشگاه و تصویربرداری</h3>
+      <p class="mt-2.5 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">پاسخ آزمایش در کمتر از ۲۴ ساعت و سونوگرافی/رادیولوژی دیجیتال.</p>
+      <a href="product.html" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-canon-600 dark:text-saffron-300">جزئیات بیشتر <span>←</span></a>
+    </div>
+
+    <div class="reveal r3 group relative rounded-3xl p-7 glass shadow-glass hover:-translate-y-2 transition-all duration-300">
+      <div class="w-14 h-14 rounded-2xl bg-canon-600 text-sand-50 flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+      </div>
+      <h3 class="text-lg font-bold">اورژانس ۲۴ ساعته</h3>
+      <p class="mt-2.5 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">تیم پزشکی آماده در تمام ساعات شبانه‌روز، حتی روزهای تعطیل.</p>
+      <a href="product.html" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-canon-600 dark:text-saffron-300">جزئیات بیشتر <span>←</span></a>
+    </div>
+
+    <div class="reveal r1 group relative rounded-3xl p-7 glass shadow-glass hover:-translate-y-2 transition-all duration-300">
+      <div class="w-14 h-14 rounded-2xl bg-saffron-500 text-canon-900 flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m-12 5h12m-12 5h12M4 7h.01M4 12h.01M4 17h.01"/></svg>
+      </div>
+      <h3 class="text-lg font-bold">مشاوره آنلاین</h3>
+      <p class="mt-2.5 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">ویزیت تصویری با پزشک متخصص از هر کجا، فقط با یک تماس تصویری.</p>
+      <a href="product.html" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-canon-600 dark:text-saffron-300">جزئیات بیشتر <span>←</span></a>
+    </div>
+
+    <div class="reveal r2 group relative rounded-3xl p-7 glass shadow-glass hover:-translate-y-2 transition-all duration-300">
+      <div class="w-14 h-14 rounded-2xl bg-canon-600 text-sand-50 flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg>
+      </div>
+      <h3 class="text-lg font-bold">زنان و زایمان</h3>
+      <p class="mt-2.5 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">مراقبت‌های دوران بارداری و سلامت باروری با تیمی زنانه و باتجربه.</p>
+      <a href="product.html" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-canon-600 dark:text-saffron-300">جزئیات بیشتر <span>←</span></a>
+    </div>
+
+    <div class="reveal r3 group relative rounded-3xl p-7 glass shadow-glass hover:-translate-y-2 transition-all duration-300">
+      <div class="w-14 h-14 rounded-2xl bg-saffron-500 text-canon-900 flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+      </div>
+      <h3 class="text-lg font-bold">پوست و زیبایی</h3>
+      <p class="mt-2.5 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">درمان‌های لیزری و پوستی با متخصصین دارای مجوز رسمی.</p>
+      <a href="product.html" class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-canon-600 dark:text-saffron-300">جزئیات بیشتر <span>←</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PULSE DIVIDER ================= -->
+<div class="max-w-7xl mx-auto px-5 md:px-8">
+  <svg viewBox="0 0 1200 60" class="w-full h-10 text-canon-300 dark:text-canon-700" fill="none">
+    <path d="M0 30 H420 L450 5 L490 55 L520 15 L545 30 H1200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<!-- ================= DOCTORS ================= -->
+<section id="doctors" class="py-20 max-w-7xl mx-auto px-5 md:px-8">
+  <div class="flex flex-wrap items-end justify-between gap-6 mb-14 reveal r1">
+    <div>
+      <span class="text-xs font-mono font-bold tracking-[0.2em] text-saffron-600 dark:text-saffron-400 uppercase">OUR DOCTORS</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-black">تیم پزشکی متخصص آویسنا</h2>
+    </div>
+    <p class="max-w-md text-sm text-canon-600/80 dark:text-sand-300/70">تمامی پزشکان کلینیک دارای بورد تخصصی و عضو نظام پزشکی هستند.</p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="reveal r1 rounded-3xl overflow-hidden glass shadow-glass group">
+      <div class="relative h-64 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="دکتر سارا احمدی">
+        <span class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/80 dark:bg-canon-900/80 text-xs font-bold backdrop-blur">قلب و عروق</span>
+      </div>
+      <div class="p-5">
+        <h3 class="font-bold">دکتر سارا احمدی</h3>
+        <p class="text-xs text-canon-500 dark:text-sand-300/60 mt-1">فوق تخصص قلب، ۱۸ سال سابقه</p>
+      </div>
+    </div>
+
+    <div class="reveal r2 rounded-3xl overflow-hidden glass shadow-glass group">
+      <div class="relative h-64 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="دکتر امیر رضایی">
+        <span class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/80 dark:bg-canon-900/80 text-xs font-bold backdrop-blur">مغز و اعصاب</span>
+      </div>
+      <div class="p-5">
+        <h3 class="font-bold">دکتر امیر رضایی</h3>
+        <p class="text-xs text-canon-500 dark:text-sand-300/60 mt-1">متخصص نورولوژی، ۱۲ سال سابقه</p>
+      </div>
+    </div>
+
+    <div class="reveal r3 rounded-3xl overflow-hidden glass shadow-glass group">
+      <div class="relative h-64 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="دکتر مریم کریمی">
+        <span class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/80 dark:bg-canon-900/80 text-xs font-bold backdrop-blur">زنان و زایمان</span>
+      </div>
+      <div class="p-5">
+        <h3 class="font-bold">دکتر مریم کریمی</h3>
+        <p class="text-xs text-canon-500 dark:text-sand-300/60 mt-1">متخصص زنان، ۱۰ سال سابقه</p>
+      </div>
+    </div>
+
+    <div class="reveal r4 rounded-3xl overflow-hidden glass shadow-glass group">
+      <div class="relative h-64 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1622902046580-2b47f47f5471?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="دکتر رضا مرادی">
+        <span class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white/80 dark:bg-canon-900/80 text-xs font-bold backdrop-blur">پوست و زیبایی</span>
+      </div>
+      <div class="p-5">
+        <h3 class="font-bold">دکتر رضا مرادی</h3>
+        <p class="text-xs text-canon-500 dark:text-sand-300/60 mt-1">متخصص پوست، ۹ سال سابقه</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS / CTA GLASS BAND ================= -->
+<section class="py-20 max-w-7xl mx-auto px-5 md:px-8">
+  <div class="rounded-[2.5rem] glass shadow-glass p-10 md:p-16 relative overflow-hidden">
+    <div class="absolute -top-16 -right-16 w-64 h-64 bg-saffron-300/30 dark:bg-saffron-500/10 rounded-full blur-3xl"></div>
+    <div class="grid md:grid-cols-2 gap-10 items-center relative">
+      <div class="reveal r1">
+        <h2 class="text-2xl md:text-3xl font-black leading-relaxed">همین حالا نوبت خود را رزرو کنید</h2>
+        <p class="mt-3 text-canon-600/80 dark:text-sand-300/70">در کمتر از ۲ دقیقه، نوبت آنلاین یا حضوری بگیرید و پرونده سلامت خود را شروع کنید.</p>
+        <a href="checkout.html" class="mt-6 inline-flex px-7 py-3.5 rounded-full bg-canon-600 text-sand-50 font-bold shadow-lg hover:bg-canon-700 transition-colors">ثبت سفارش نوبت</a>
+      </div>
+      <div class="grid grid-cols-2 gap-6 reveal r2">
+        <div class="text-center">
+          <p class="text-4xl font-black font-mono text-canon-600 dark:text-saffron-300">۱۲۰K+</p>
+          <p class="text-xs mt-2 text-canon-600/70 dark:text-sand-300/60">بیمار درمان‌شده</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-black font-mono text-canon-600 dark:text-saffron-300">۴۰+</p>
+          <p class="text-xs mt-2 text-canon-600/70 dark:text-sand-300/60">پزشک متخصص</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-black font-mono text-canon-600 dark:text-saffron-300">۱۵</p>
+          <p class="text-xs mt-2 text-canon-600/70 dark:text-sand-300/60">سال سابقه فعالیت</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-black font-mono text-canon-600 dark:text-saffron-300">۴.۹/۵</p>
+          <p class="text-xs mt-2 text-canon-600/70 dark:text-sand-300/60">امتیاز رضایت</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG PREVIEW ================= -->
+<section class="py-20 max-w-7xl mx-auto px-5 md:px-8">
+  <div class="flex flex-wrap items-end justify-between gap-6 mb-14 reveal r1">
+    <div>
+      <span class="text-xs font-mono font-bold tracking-[0.2em] text-saffron-600 dark:text-saffron-400 uppercase">HEALTH JOURNAL</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-black">تازه‌ترین مقالات مجله سلامت</h2>
+    </div>
+    <a href="blog.html" class="text-sm font-bold text-canon-600 dark:text-saffron-300">مشاهده همه مقالات ←</a>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <a href="blog-post.html" class="reveal r1 group rounded-3xl overflow-hidden glass shadow-glass block">
+      <div class="h-48 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="تغذیه سالم">
+      </div>
+      <div class="p-6">
+        <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">تغذیه</span>
+        <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">۷ عادت غذایی برای سلامت قلب در فصل سرد</h3>
+        <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۱۲ مرداد ۱۴۰۴ · ۶ دقیقه مطالعه</p>
+      </div>
+    </a>
+    <a href="blog-post.html" class="reveal r2 group rounded-3xl overflow-hidden glass shadow-glass block">
+      <div class="h-48 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="خواب و سلامت">
+      </div>
+      <div class="p-6">
+        <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">سلامت روان</span>
+        <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">چرا کیفیت خواب مهم‌تر از مدت آن است؟</h3>
+        <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۵ مرداد ۱۴۰۴ · ۴ دقیقه مطالعه</p>
+      </div>
+    </a>
+    <a href="blog-post.html" class="reveal r3 group rounded-3xl overflow-hidden glass shadow-glass block">
+      <div class="h-48 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="ورزش منظم">
+      </div>
+      <div class="p-6">
+        <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">ورزش</span>
+        <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">۲۰ دقیقه پیاده‌روی؛ ساده‌ترین نسخه پزشک</h3>
+        <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۱ مرداد ۱۴۰۴ · ۵ دقیقه مطالعه</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact" class="mt-10 border-t border-canon-100 dark:border-white/5 bg-canon-50/60 dark:bg-white/[0.02]">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <span class="w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold">آ</span>
+        <p class="font-extrabold">کلینیک آویسنا</p>
+      </div>
+      <p class="text-sm text-canon-600/70 dark:text-sand-300/60 leading-relaxed">همراه سلامت شما، از تشخیص تا درمان.</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">دسترسی سریع</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="#services" class="hover:text-canon-600 dark:hover:text-saffron-300">خدمات درمانی</a></li>
+        <li><a href="blog.html" class="hover:text-canon-600 dark:hover:text-saffron-300">مجله سلامت</a></li>
+        <li><a href="product.html" class="hover:text-canon-600 dark:hover:text-saffron-300">بسته‌های ویزیت</a></li>
+        <li><a href="checkout.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت سفارش نوبت</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">حساب کاربری</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="login.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ورود به حساب</a></li>
+        <li><a href="signup.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت‌نام</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">تماس با ما</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li>تهران، خیابان ولیعصر، پلاک ۱۲</li>
+        <li dir="ltr" class="text-right">021-88991122</li>
+        <li>info@avicenna-clinic.ir</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-canon-100 dark:border-white/5 py-6 text-center text-xs text-canon-500/70 dark:text-sand-300/50">
+    © ۱۴۰۴ کلینیک آویسنا. تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+  function applyTheme(t){
+    if(t === 'dark'){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+    else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+  }
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  applyTheme(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const now = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', now);
+    applyTheme(now);
+  });
+</script>
+</body>
+</html>

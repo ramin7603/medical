@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بسته چکاپ کامل قلب | کلینیک آویسنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      fontFamily: { sans: ['Vazirmatn','sans-serif'], mono: ['Space Grotesk','monospace'] },
+      colors: {
+        canon: { 50:'#F4F8F6', 100:'#E4EEEA', 200:'#C3DCD3', 300:'#96C1B2', 400:'#5E9C88', 500:'#2F7A64', 600:'#1F5E4F', 700:'#194A3F', 800:'#123830', 900:'#0B2521' },
+        saffron: { 300:'#F2CD8A', 400:'#E8B35A', 500:'#D99A38', 600:'#B87C24' },
+        sand: { 50:'#FBF8F1', 100:'#F6F0E3', 200:'#EEE4CE' }
+      },
+      boxShadow: { glass: '0 8px 32px 0 rgba(11,37,33,0.15)' },
+      keyframes: {
+        spinSlow: { from:{ transform:'rotate(0deg)'}, to:{ transform:'rotate(360deg)'} },
+        fadeUp: { from:{ opacity:0, transform:'translateY(24px)'}, to:{ opacity:1, transform:'translateY(0)'} },
+        pulseDot: { '0%,100%':{ opacity:1, transform:'scale(1)'}, '50%':{ opacity:0.6, transform:'scale(1.4)'} }
+      },
+      animation: { spinSlow: 'spinSlow 18s linear infinite', fadeUp: 'fadeUp .8s ease forwards', pulseDot: 'pulseDot 2s ease-in-out infinite' }
+    } }
+  }
+</script>
+<style>
+  html{ scroll-behavior:smooth; }
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,0.35); }
+  .dark .glass { background: rgba(18,56,48,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-nav { background: rgba(251,248,241,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .dark .glass-nav { background: rgba(11,37,33,0.65); }
+  .reveal { animation: fadeUp .8s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; } }
+  .r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}
+  .thumb.active{ outline:2px solid #2F7A64; }
+  .dark .thumb.active{ outline:2px solid #E8B35A; }
+  .tabbtn.active{ border-color:#2F7A64; color:#1F5E4F; }
+  .dark .tabbtn.active{ border-color:#E8B35A; color:#F2CD8A; }
+</style>
+</head>
+<body class="bg-sand-50 dark:bg-canon-900 text-canon-900 dark:text-sand-100 font-sans transition-colors duration-500">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-canon-100/60 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="relative w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold text-lg">آ
+        <span class="absolute -inset-1 rounded-2xl border border-canon-400/40 animate-spinSlow"></span>
+      </span>
+      <div class="leading-tight">
+        <p class="font-extrabold text-lg">کلینیک آویسنا</p>
+        <p class="text-[11px] tracking-widest text-canon-500 dark:text-saffron-300 font-mono uppercase">AVICENNA CLINIC</p>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium">
+      <a href="index.html#services" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">خدمات</a>
+      <a href="index.html#doctors" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">پزشکان</a>
+      <a href="product.html" class="text-canon-600 dark:text-saffron-300 font-bold">محصولات و بسته‌ها</a>
+      <a href="blog.html" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">مجله سلامت</a>
+      <a href="index.html#contact" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">تماس با ما</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" aria-label="تغییر پوسته" class="w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+        <svg id="iconSun" class="w-5 h-5 text-saffron-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+        <svg id="iconMoon" class="w-5 h-5 text-canon-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="checkout.html" class="relative w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.836l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 1.98-4.706 2.545-7.201.108-.483-.276-.949-.771-.949H5.106M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/></svg>
+        <span class="absolute -top-1 -left-1 w-4 h-4 rounded-full bg-saffron-500 text-white text-[9px] font-bold flex items-center justify-center">۱</span>
+      </a>
+      <a href="signup.html" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-canon-600 text-sand-50 hover:bg-canon-700 shadow-lg shadow-canon-600/25 transition-all hover:-translate-y-0.5">نوبت‌دهی آنلاین</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="pt-28 max-w-7xl mx-auto px-5 md:px-8 text-xs text-canon-500 dark:text-sand-300/60 flex items-center gap-2">
+  <a href="index.html" class="hover:text-canon-600 dark:hover:text-saffron-300">خانه</a><span>/</span>
+  <a href="product.html" class="hover:text-canon-600 dark:hover:text-saffron-300">محصولات و بسته‌ها</a><span>/</span>
+  <span>چکاپ کامل قلب</span>
+</div>
+
+<!-- PRODUCT MAIN -->
+<section class="max-w-7xl mx-auto px-5 md:px-8 py-10 grid lg:grid-cols-2 gap-14">
+
+  <!-- Gallery -->
+  <div class="reveal r1">
+    <div class="rounded-[2rem] overflow-hidden shadow-2xl h-72 sm:h-[26rem]">
+      <img id="mainImg" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="بسته چکاپ کامل قلب">
+    </div>
+    <div class="mt-4 grid grid-cols-4 gap-3">
+      <button onclick="setImg(this,'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop')" class="thumb active rounded-xl overflow-hidden h-20">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+      </button>
+      <button onclick="setImg(this,'https://images.unsplash.com/photo-1666887360742-974c8fce8e35?q=80&w=1200&auto=format&fit=crop')" class="thumb rounded-xl overflow-hidden h-20">
+        <img src="https://images.unsplash.com/photo-1666887360742-974c8fce8e35?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+      </button>
+      <button onclick="setImg(this,'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop')" class="thumb rounded-xl overflow-hidden h-20">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+      </button>
+      <button onclick="setImg(this,'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=1200&auto=format&fit=crop')" class="thumb rounded-xl overflow-hidden h-20">
+        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+      </button>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <div class="reveal r2">
+    <span class="inline-block text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider bg-saffron-400/10 px-3 py-1 rounded-full">بسته پزشکی · قلب و عروق</span>
+    <h1 class="mt-4 text-3xl font-black">بسته چکاپ کامل قلب</h1>
+    <div class="mt-3 flex items-center gap-2 text-sm">
+      <div class="flex text-saffron-500">★★★★★</div>
+      <span class="text-canon-500 dark:text-sand-300/60">۴.۹ از ۵ (۲۴۰ نظر)</span>
+    </div>
+
+    <p class="mt-5 text-canon-600/90 dark:text-sand-300/70 leading-loose">
+      این بسته شامل مجموعه کاملی از آزمایش‌ها و تصویربرداری‌های لازم برای ارزیابی سلامت قلب شماست؛
+      مناسب برای افراد بالای ۴۰ سال یا کسانی که سابقه خانوادگی بیماری قلبی دارند.
+    </p>
+
+    <div class="mt-6 flex items-end gap-3">
+      <span class="text-3xl font-black font-mono text-canon-700 dark:text-saffron-300">۲,۹۵۰,۰۰۰</span>
+      <span class="text-sm text-canon-500 dark:text-sand-300/60">تومان</span>
+      <span class="text-sm line-through text-canon-400 dark:text-sand-300/40">۳,۸۰۰,۰۰۰</span>
+      <span class="text-xs font-bold text-white bg-canon-600 px-2 py-1 rounded-full">۲۲٪ تخفیف</span>
+    </div>
+
+    <ul class="mt-6 space-y-3 text-sm">
+      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-canon-600 dark:text-saffron-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> نوار قلب (ECG) و اکوکاردیوگرافی</li>
+      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-canon-600 dark:text-saffron-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> آزمایش کامل خون و چربی</li>
+      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-canon-600 dark:text-saffron-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> ویزیت حضوری با فوق‌تخصص قلب</li>
+      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-canon-600 dark:text-saffron-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> گزارش تحلیلی و برنامه پیشگیری شخصی‌سازی‌شده</li>
+    </ul>
+
+    <div class="mt-8 flex items-center gap-4">
+      <div class="flex items-center border border-canon-200 dark:border-white/10 rounded-full overflow-hidden">
+        <button onclick="qty(-1)" class="w-11 h-11 hover:bg-canon-100/60 dark:hover:bg-white/5 font-bold">−</button>
+        <span id="qtyVal" class="w-10 text-center font-bold font-mono">۱</span>
+        <button onclick="qty(1)" class="w-11 h-11 hover:bg-canon-100/60 dark:hover:bg-white/5 font-bold">+</button>
+      </div>
+      <a href="checkout.html" class="flex-1 text-center px-7 py-3.5 rounded-full bg-canon-600 text-sand-50 font-bold shadow-lg shadow-canon-600/30 hover:bg-canon-700 hover:-translate-y-0.5 transition-all">افزودن به سفارش و رزرو نوبت</a>
+    </div>
+
+    <div class="mt-8 flex items-center gap-4 flex-wrap">
+      <span class="inline-flex items-center gap-2 text-xs text-canon-500 dark:text-sand-300/60">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulseDot"></span> موجود برای نوبت‌دهی این هفته
+      </span>
+      <span class="inline-flex items-center gap-2 text-xs text-canon-500 dark:text-sand-300/60">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> پرداخت امن و قابل استرداد
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="max-w-7xl mx-auto px-5 md:px-8 py-14">
+  <div class="flex gap-6 border-b border-canon-200 dark:border-white/10 overflow-x-auto">
+    <button onclick="showTab(event,'desc')" class="tabbtn active whitespace-nowrap pb-4 px-1 border-b-2 border-transparent font-bold text-sm">توضیحات کامل</button>
+    <button onclick="showTab(event,'steps')" class="tabbtn whitespace-nowrap pb-4 px-1 border-b-2 border-transparent font-bold text-sm text-canon-500 dark:text-sand-300/60">مراحل انجام</button>
+    <button onclick="showTab(event,'reviews')" class="tabbtn whitespace-nowrap pb-4 px-1 border-b-2 border-transparent font-bold text-sm text-canon-500 dark:text-sand-300/60">نظرات بیماران</button>
+  </div>
+
+  <div id="desc" class="tabpane py-8 text-sm leading-loose text-canon-600/90 dark:text-sand-300/70 max-w-3xl">
+    بسته چکاپ کامل قلب برای افرادی طراحی شده که به دنبال ارزیابی جامع سلامت قلبی-عروقی خود هستند.
+    این بسته با استفاده از جدیدترین تجهیزات تشخیصی و زیر نظر فوق‌تخصص‌های قلب کلینیک آویسنا انجام می‌شود
+    و شامل مشاوره تغذیه و ورزش اختصاصی پس از دریافت نتایج نیز می‌باشد.
+  </div>
+  <div id="steps" class="tabpane py-8 hidden">
+    <ol class="space-y-4 text-sm max-w-2xl">
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-canon-600 text-sand-50 flex items-center justify-center text-xs font-bold shrink-0">۱</span> ثبت نوبت آنلاین و انتخاب زمان مناسب</li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-canon-600 text-sand-50 flex items-center justify-center text-xs font-bold shrink-0">۲</span> نمونه‌گیری خون و انجام نوار قلب</li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-canon-600 text-sand-50 flex items-center justify-center text-xs font-bold shrink-0">۳</span> اکوکاردیوگرافی توسط متخصص</li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-canon-600 text-sand-50 flex items-center justify-center text-xs font-bold shrink-0">۴</span> ویزیت نهایی و دریافت گزارش تحلیلی</li>
+    </ol>
+  </div>
+  <div id="reviews" class="tabpane py-8 hidden space-y-6 max-w-2xl">
+    <div class="rounded-2xl glass shadow-glass p-5">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=100&auto=format&fit=crop" class="w-9 h-9 rounded-full object-cover" alt="">
+        <div><p class="text-sm font-bold">حسین توکلی</p><div class="text-xs text-saffron-500">★★★★★</div></div>
+      </div>
+      <p class="text-sm text-canon-600/80 dark:text-sand-300/70">نوبت‌دهی سریع بود و نتایج آزمایش خیلی زودتر از چیزی که فکر می‌کردم آماده شد.</p>
+    </div>
+    <div class="rounded-2xl glass shadow-glass p-5">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?q=80&w=100&auto=format&fit=crop" class="w-9 h-9 rounded-full object-cover" alt="">
+        <div><p class="text-sm font-bold">نگار صادقی</p><div class="text-xs text-saffron-500">★★★★★</div></div>
+      </div>
+      <p class="text-sm text-canon-600/80 dark:text-sand-300/70">برخورد پزشک و پرستارها خیلی محترمانه بود، توضیحات کامل و قابل فهم دادن.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED PRODUCTS -->
+<section class="max-w-7xl mx-auto px-5 md:px-8 pb-24">
+  <h2 class="text-2xl font-black mb-8">بسته‌های مرتبط</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <a href="product.html" class="group rounded-3xl overflow-hidden glass shadow-glass block">
+      <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+      <div class="p-5">
+        <h3 class="font-bold">چکاپ عمومی سالانه</h3>
+        <p class="mt-2 text-canon-600 dark:text-saffron-300 font-mono font-bold">۱,۸۵۰,۰۰۰ تومان</p>
+      </div>
+    </a>
+    <a href="product.html" class="group rounded-3xl overflow-hidden glass shadow-glass block">
+      <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+      <div class="p-5">
+        <h3 class="font-bold">مشاوره آنلاین تغذیه</h3>
+        <p class="mt-2 text-canon-600 dark:text-saffron-300 font-mono font-bold">۴۵۰,۰۰۰ تومان</p>
+      </div>
+    </a>
+    <a href="product.html" class="group rounded-3xl overflow-hidden glass shadow-glass block">
+      <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+      <div class="p-5">
+        <h3 class="font-bold">چکاپ زنان بالای ۳۰ سال</h3>
+        <p class="mt-2 text-canon-600 dark:text-saffron-300 font-mono font-bold">۲,۲۰۰,۰۰۰ تومان</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="border-t border-canon-100 dark:border-white/5 bg-canon-50/60 dark:bg-white/[0.02]">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <span class="w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold">آ</span>
+        <p class="font-extrabold">کلینیک آویسنا</p>
+      </div>
+      <p class="text-sm text-canon-600/70 dark:text-sand-300/60 leading-relaxed">همراه سلامت شما، از تشخیص تا درمان.</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">دسترسی سریع</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="index.html#services" class="hover:text-canon-600 dark:hover:text-saffron-300">خدمات درمانی</a></li>
+        <li><a href="blog.html" class="hover:text-canon-600 dark:hover:text-saffron-300">مجله سلامت</a></li>
+        <li><a href="checkout.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت سفارش نوبت</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">حساب کاربری</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="login.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ورود به حساب</a></li>
+        <li><a href="signup.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت‌نام</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">تماس با ما</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li>تهران، خیابان ولیعصر، پلاک ۱۲</li>
+        <li dir="ltr" class="text-right">021-88991122</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-canon-100 dark:border-white/5 py-6 text-center text-xs text-canon-500/70 dark:text-sand-300/50">
+    © ۱۴۰۴ کلینیک آویسنا. تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+  function applyTheme(t){
+    if(t === 'dark'){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+    else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+  }
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  applyTheme(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const now = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', now);
+    applyTheme(now);
+  });
+
+  function setImg(el, src){
+    document.getElementById('mainImg').src = src;
+    document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+  }
+  let quantity = 1;
+  function qty(delta){
+    quantity = Math.max(1, quantity + delta);
+    const fa = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+    document.getElementById('qtyVal').textContent = String(quantity).split('').map(d=>fa[d]).join('');
+  }
+  function showTab(e, id){
+    document.querySelectorAll('.tabpane').forEach(p=>p.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+    document.querySelectorAll('.tabbtn').forEach(b=>{ b.classList.remove('active'); b.classList.add('text-canon-500','dark:text-sand-300/60'); });
+    e.currentTarget.classList.add('active');
+    e.currentTarget.classList.remove('text-canon-500','dark:text-sand-300/60');
+  }
+</script>
+</body>
+</html>

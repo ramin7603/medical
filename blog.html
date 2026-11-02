@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مجله سلامت | کلینیک آویسنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      fontFamily: { sans: ['Vazirmatn','sans-serif'], mono: ['Space Grotesk','monospace'] },
+      colors: {
+        canon: { 50:'#F4F8F6', 100:'#E4EEEA', 200:'#C3DCD3', 300:'#96C1B2', 400:'#5E9C88', 500:'#2F7A64', 600:'#1F5E4F', 700:'#194A3F', 800:'#123830', 900:'#0B2521' },
+        saffron: { 300:'#F2CD8A', 400:'#E8B35A', 500:'#D99A38', 600:'#B87C24' },
+        sand: { 50:'#FBF8F1', 100:'#F6F0E3', 200:'#EEE4CE' }
+      },
+      boxShadow: { glass: '0 8px 32px 0 rgba(11,37,33,0.15)' },
+      keyframes: {
+        spinSlow: { from:{ transform:'rotate(0deg)'}, to:{ transform:'rotate(360deg)'} },
+        fadeUp: { from:{ opacity:0, transform:'translateY(24px)'}, to:{ opacity:1, transform:'translateY(0)'} }
+      },
+      animation: { spinSlow: 'spinSlow 18s linear infinite', fadeUp: 'fadeUp .8s ease forwards' }
+    } }
+  }
+</script>
+<style>
+  html{ scroll-behavior:smooth; }
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,0.35); }
+  .dark .glass { background: rgba(18,56,48,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-nav { background: rgba(251,248,241,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .dark .glass-nav { background: rgba(11,37,33,0.65); }
+  .reveal { animation: fadeUp .8s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; } }
+  .r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}
+  .tab.active{ background:#1F5E4F; color:#FBF8F1; }
+  .dark .tab.active{ background:#E8B35A; color:#0B2521; }
+</style>
+</head>
+<body class="bg-sand-50 dark:bg-canon-900 text-canon-900 dark:text-sand-100 font-sans transition-colors duration-500">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-canon-100/60 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="relative w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold text-lg">آ
+        <span class="absolute -inset-1 rounded-2xl border border-canon-400/40 animate-spinSlow"></span>
+      </span>
+      <div class="leading-tight">
+        <p class="font-extrabold text-lg">کلینیک آویسنا</p>
+        <p class="text-[11px] tracking-widest text-canon-500 dark:text-saffron-300 font-mono uppercase">AVICENNA CLINIC</p>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium">
+      <a href="index.html#services" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">خدمات</a>
+      <a href="index.html#doctors" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">پزشکان</a>
+      <a href="product.html" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">محصولات و بسته‌ها</a>
+      <a href="blog.html" class="text-canon-600 dark:text-saffron-300 font-bold">مجله سلامت</a>
+      <a href="index.html#contact" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">تماس با ما</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" aria-label="تغییر پوسته" class="w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+        <svg id="iconSun" class="w-5 h-5 text-saffron-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+        <svg id="iconMoon" class="w-5 h-5 text-canon-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="login.html" class="hidden sm:inline-block px-4 py-2 rounded-full text-sm font-semibold border border-canon-300 dark:border-white/15 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">ورود</a>
+      <a href="signup.html" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-canon-600 text-sand-50 hover:bg-canon-700 shadow-lg shadow-canon-600/25 transition-all hover:-translate-y-0.5">نوبت‌دهی آنلاین</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-40 pb-16 max-w-7xl mx-auto px-5 md:px-8 text-center">
+  <span class="text-xs font-mono font-bold tracking-[0.2em] text-saffron-600 dark:text-saffron-400 uppercase reveal r1">HEALTH JOURNAL</span>
+  <h1 class="mt-4 text-4xl md:text-5xl font-black reveal r2">مجله سلامت آویسنا</h1>
+  <p class="mt-4 max-w-xl mx-auto text-canon-600/80 dark:text-sand-300/70 reveal r3">مقالاتی مبتنی بر شواهد علمی، نوشته‌شده و بازبینی‌شده توسط پزشکان متخصص کلینیک.</p>
+
+  <!-- category tabs -->
+  <div class="mt-10 flex flex-wrap justify-center gap-3 reveal r3">
+    <button class="tab active px-5 py-2 rounded-full text-sm font-bold border border-canon-200 dark:border-white/10 transition-colors">همه</button>
+    <button class="tab px-5 py-2 rounded-full text-sm font-bold border border-canon-200 dark:border-white/10 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">تغذیه</button>
+    <button class="tab px-5 py-2 rounded-full text-sm font-bold border border-canon-200 dark:border-white/10 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">سلامت روان</button>
+    <button class="tab px-5 py-2 rounded-full text-sm font-bold border border-canon-200 dark:border-white/10 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">ورزش</button>
+    <button class="tab px-5 py-2 rounded-full text-sm font-bold border border-canon-200 dark:border-white/10 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">قلب و عروق</button>
+    <button class="tab px-5 py-2 rounded-full text-sm font-bold border border-canon-200 dark:border-white/10 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">کودکان</button>
+  </div>
+</section>
+
+<!-- FEATURED POST -->
+<section class="max-w-7xl mx-auto px-5 md:px-8 mb-20">
+  <a href="blog-post.html" class="reveal r1 group grid md:grid-cols-2 gap-0 rounded-[2rem] overflow-hidden glass shadow-glass">
+    <div class="h-64 md:h-full overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="مقاله ویژه">
+    </div>
+    <div class="p-8 md:p-10 flex flex-col justify-center">
+      <span class="inline-block w-fit text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider bg-saffron-400/10 px-3 py-1 rounded-full">مقاله ویژه · قلب و عروق</span>
+      <h2 class="mt-4 text-2xl md:text-3xl font-black leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">علائم خاموش بیماری قلبی که اغلب نادیده گرفته می‌شوند</h2>
+      <p class="mt-4 text-sm text-canon-600/80 dark:text-sand-300/70 leading-relaxed">بسیاری از بیماری‌های قلبی در مراحل اولیه بدون علامت آشکار پیش می‌روند. در این مقاله دکتر سارا احمدی، فوق‌تخصص قلب، نشانه‌های ظریفی را توضیح می‌دهد که نباید نادیده گرفته شوند.</p>
+      <div class="mt-6 flex items-center gap-3 text-xs text-canon-500 dark:text-sand-300/60">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-full object-cover" alt="نویسنده">
+        <span>دکتر سارا احمدی</span><span>·</span><span>۱۵ مرداد ۱۴۰۴</span><span>·</span><span>۸ دقیقه مطالعه</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- ARTICLE GRID -->
+<section class="max-w-7xl mx-auto px-5 md:px-8 pb-24 grid md:grid-cols-3 gap-6">
+
+  <a href="blog-post.html" class="reveal r1 group rounded-3xl overflow-hidden glass shadow-glass block">
+    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="تغذیه"></div>
+    <div class="p-6">
+      <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">تغذیه</span>
+      <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">۷ عادت غذایی برای سلامت قلب در فصل سرد</h3>
+      <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۱۲ مرداد ۱۴۰۴ · ۶ دقیقه مطالعه</p>
+    </div>
+  </a>
+
+  <a href="blog-post.html" class="reveal r2 group rounded-3xl overflow-hidden glass shadow-glass block">
+    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="خواب"></div>
+    <div class="p-6">
+      <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">سلامت روان</span>
+      <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">چرا کیفیت خواب مهم‌تر از مدت آن است؟</h3>
+      <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۵ مرداد ۱۴۰۴ · ۴ دقیقه مطالعه</p>
+    </div>
+  </a>
+
+  <a href="blog-post.html" class="reveal r3 group rounded-3xl overflow-hidden glass shadow-glass block">
+    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="ورزش"></div>
+    <div class="p-6">
+      <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">ورزش</span>
+      <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">۲۰ دقیقه پیاده‌روی؛ ساده‌ترین نسخه پزشک</h3>
+      <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۱ مرداد ۱۴۰۴ · ۵ دقیقه مطالعه</p>
+    </div>
+  </a>
+
+  <a href="blog-post.html" class="reveal r1 group rounded-3xl overflow-hidden glass shadow-glass block">
+    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="کودکان"></div>
+    <div class="p-6">
+      <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">کودکان</span>
+      <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">راهنمای واکسیناسیون کودکان زیر ۲ سال</h3>
+      <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۲۸ تیر ۱۴۰۴ · ۷ دقیقه مطالعه</p>
+    </div>
+  </a>
+
+  <a href="blog-post.html" class="reveal r2 group rounded-3xl overflow-hidden glass shadow-glass block">
+    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="پوست"></div>
+    <div class="p-6">
+      <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">پوست و زیبایی</span>
+      <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">محافظت از پوست در برابر آفتاب تابستان</h3>
+      <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۲۲ تیر ۱۴۰۴ · ۵ دقیقه مطالعه</p>
+    </div>
+  </a>
+
+  <a href="blog-post.html" class="reveal r3 group rounded-3xl overflow-hidden glass shadow-glass block">
+    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="دندانپزشکی"></div>
+    <div class="p-6">
+      <span class="text-[11px] font-bold text-saffron-600 dark:text-saffron-400 font-mono uppercase tracking-wider">دندانپزشکی</span>
+      <h3 class="mt-2 font-bold leading-relaxed group-hover:text-canon-600 dark:group-hover:text-saffron-300 transition-colors">۵ نشانه‌ای که باید فوراً به دندانپزشک مراجعه کنید</h3>
+      <p class="mt-2 text-xs text-canon-500 dark:text-sand-300/60">۱۸ تیر ۱۴۰۴ · ۴ دقیقه مطالعه</p>
+    </div>
+  </a>
+
+  <!-- pagination -->
+  <div class="md:col-span-3 flex justify-center gap-2 mt-6 reveal r1">
+    <button class="w-10 h-10 rounded-full bg-canon-600 text-sand-50 font-bold text-sm">۱</button>
+    <button class="w-10 h-10 rounded-full glass shadow-glass font-bold text-sm hover:bg-canon-100/60 dark:hover:bg-white/5">۲</button>
+    <button class="w-10 h-10 rounded-full glass shadow-glass font-bold text-sm hover:bg-canon-100/60 dark:hover:bg-white/5">۳</button>
+    <button class="px-4 h-10 rounded-full glass shadow-glass font-bold text-sm hover:bg-canon-100/60 dark:hover:bg-white/5">بعدی ←</button>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="max-w-7xl mx-auto px-5 md:px-8 pb-24">
+  <div class="rounded-[2.5rem] bg-canon-700 dark:bg-canon-800 p-10 md:p-14 text-center relative overflow-hidden">
+    <div class="absolute -top-16 -left-16 w-64 h-64 bg-saffron-400/20 rounded-full blur-3xl"></div>
+    <h2 class="text-2xl md:text-3xl font-black text-sand-50 relative">در خبرنامه سلامت آویسنا عضو شوید</h2>
+    <p class="mt-3 text-sand-200/70 max-w-md mx-auto relative">هفته‌ای یک ایمیل با جدیدترین مقالات و توصیه‌های پزشکی؛ بدون اسپم.</p>
+    <form class="mt-7 flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative" onsubmit="return false;">
+      <input type="email" placeholder="ایمیل شما" class="flex-1 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 text-sand-50 placeholder:text-sand-300/40 outline-none focus:border-saffron-400">
+      <button class="px-6 py-3.5 rounded-full bg-saffron-400 text-canon-900 font-bold hover:bg-saffron-300 transition-colors">عضویت</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="border-t border-canon-100 dark:border-white/5 bg-canon-50/60 dark:bg-white/[0.02]">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <span class="w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold">آ</span>
+        <p class="font-extrabold">کلینیک آویسنا</p>
+      </div>
+      <p class="text-sm text-canon-600/70 dark:text-sand-300/60 leading-relaxed">همراه سلامت شما، از تشخیص تا درمان.</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">دسترسی سریع</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="index.html#services" class="hover:text-canon-600 dark:hover:text-saffron-300">خدمات درمانی</a></li>
+        <li><a href="blog.html" class="hover:text-canon-600 dark:hover:text-saffron-300">مجله سلامت</a></li>
+        <li><a href="product.html" class="hover:text-canon-600 dark:hover:text-saffron-300">بسته‌های ویزیت</a></li>
+        <li><a href="checkout.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت سفارش نوبت</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">حساب کاربری</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="login.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ورود به حساب</a></li>
+        <li><a href="signup.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت‌نام</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">تماس با ما</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li>تهران، خیابان ولیعصر، پلاک ۱۲</li>
+        <li dir="ltr" class="text-right">021-88991122</li>
+        <li>info@avicenna-clinic.ir</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-canon-100 dark:border-white/5 py-6 text-center text-xs text-canon-500/70 dark:text-sand-300/50">
+    © ۱۴۰۴ کلینیک آویسنا. تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+  function applyTheme(t){
+    if(t === 'dark'){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+    else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+  }
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  applyTheme(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const now = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', now);
+    applyTheme(now);
+  });
+
+  document.querySelectorAll('.tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

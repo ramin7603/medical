@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثبت سفارش و رزرو نوبت | کلینیک آویسنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      fontFamily: { sans: ['Vazirmatn','sans-serif'], mono: ['Space Grotesk','monospace'] },
+      colors: {
+        canon: { 50:'#F4F8F6', 100:'#E4EEEA', 200:'#C3DCD3', 300:'#96C1B2', 400:'#5E9C88', 500:'#2F7A64', 600:'#1F5E4F', 700:'#194A3F', 800:'#123830', 900:'#0B2521' },
+        saffron: { 300:'#F2CD8A', 400:'#E8B35A', 500:'#D99A38', 600:'#B87C24' },
+        sand: { 50:'#FBF8F1', 100:'#F6F0E3', 200:'#EEE4CE' }
+      },
+      boxShadow: { glass: '0 8px 32px 0 rgba(11,37,33,0.15)' },
+      keyframes: {
+        spinSlow: { from:{ transform:'rotate(0deg)'}, to:{ transform:'rotate(360deg)'} },
+        fadeUp: { from:{ opacity:0, transform:'translateY(24px)'}, to:{ opacity:1, transform:'translateY(0)'} },
+        pulseDot: { '0%,100%':{ opacity:1, transform:'scale(1)'}, '50%':{ opacity:0.6, transform:'scale(1.4)'} }
+      },
+      animation: { spinSlow: 'spinSlow 18s linear infinite', fadeUp: 'fadeUp .8s ease forwards', pulseDot: 'pulseDot 2s ease-in-out infinite' }
+    } }
+  }
+</script>
+<style>
+  html{ scroll-behavior:smooth; }
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,0.35); }
+  .dark .glass { background: rgba(18,56,48,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-nav { background: rgba(251,248,241,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .dark .glass-nav { background: rgba(11,37,33,0.65); }
+  .reveal { animation: fadeUp .8s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; } }
+  .r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}
+  .day.active{ background:#1F5E4F; color:#FBF8F1; }
+  .dark .day.active{ background:#E8B35A; color:#0B2521; }
+  .slot.active{ background:#1F5E4F; color:#FBF8F1; border-color:#1F5E4F; }
+  .dark .slot.active{ background:#E8B35A; color:#0B2521; border-color:#E8B35A; }
+  .pay.active{ border-color:#2F7A64; background:rgba(47,122,100,.06); }
+  .dark .pay.active{ border-color:#E8B35A; background:rgba(232,179,90,.08); }
+</style>
+</head>
+<body class="bg-sand-50 dark:bg-canon-900 text-canon-900 dark:text-sand-100 font-sans transition-colors duration-500">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-canon-100/60 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="relative w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold text-lg">آ
+        <span class="absolute -inset-1 rounded-2xl border border-canon-400/40 animate-spinSlow"></span>
+      </span>
+      <div class="leading-tight">
+        <p class="font-extrabold text-lg">کلینیک آویسنا</p>
+        <p class="text-[11px] tracking-widest text-canon-500 dark:text-saffron-300 font-mono uppercase">AVICENNA CLINIC</p>
+      </div>
+    </a>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" aria-label="تغییر پوسته" class="w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+        <svg id="iconSun" class="w-5 h-5 text-saffron-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+        <svg id="iconMoon" class="w-5 h-5 text-canon-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="index.html" class="px-5 py-2.5 rounded-full text-sm font-semibold border border-canon-300 dark:border-white/15 hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">بازگشت به سایت</a>
+    </div>
+  </div>
+</header>
+
+<section class="pt-32 pb-24 max-w-7xl mx-auto px-5 md:px-8">
+
+  <div class="reveal r1 mb-10">
+    <h1 class="text-3xl font-black">ثبت سفارش و رزرو نوبت</h1>
+    <p class="mt-2 text-canon-600/70 dark:text-sand-300/60 text-sm">اطلاعات زیر را تکمیل کنید تا نوبت شما نهایی شود.</p>
+
+    <!-- steps -->
+    <div class="mt-7 flex items-center gap-2 sm:gap-4 text-xs font-bold">
+      <div class="flex items-center gap-2 text-canon-600 dark:text-saffron-300">
+        <span class="w-7 h-7 rounded-full bg-canon-600 dark:bg-saffron-400 text-sand-50 dark:text-canon-900 flex items-center justify-center">۱</span> انتخاب زمان
+      </div>
+      <span class="w-6 sm:w-12 h-px bg-canon-200 dark:bg-white/10"></span>
+      <div class="flex items-center gap-2 text-canon-600 dark:text-saffron-300">
+        <span class="w-7 h-7 rounded-full bg-canon-600 dark:bg-saffron-400 text-sand-50 dark:text-canon-900 flex items-center justify-center">۲</span> اطلاعات بیمار
+      </div>
+      <span class="w-6 sm:w-12 h-px bg-canon-200 dark:bg-white/10"></span>
+      <div class="flex items-center gap-2 text-canon-400 dark:text-sand-300/40">
+        <span class="w-7 h-7 rounded-full border-2 border-canon-300 dark:border-white/15 flex items-center justify-center">۳</span> پرداخت
+      </div>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-[1fr_360px] gap-10">
+    <!-- LEFT: FORM -->
+    <div class="space-y-8">
+
+      <!-- Date/time -->
+      <div class="rounded-3xl glass shadow-glass p-6 sm:p-8 reveal r1">
+        <h3 class="font-bold mb-5">۱. انتخاب روز و ساعت نوبت</h3>
+        <div class="flex gap-3 overflow-x-auto pb-2">
+          <button onclick="selDay(this)" class="day active shrink-0 w-16 py-3 rounded-2xl border border-canon-200 dark:border-white/10 text-center transition-colors"><p class="text-[11px]">شنبه</p><p class="font-bold font-mono mt-1">۲۵</p></button>
+          <button onclick="selDay(this)" class="day shrink-0 w-16 py-3 rounded-2xl border border-canon-200 dark:border-white/10 text-center transition-colors"><p class="text-[11px]">یکشنبه</p><p class="font-bold font-mono mt-1">۲۶</p></button>
+          <button onclick="selDay(this)" class="day shrink-0 w-16 py-3 rounded-2xl border border-canon-200 dark:border-white/10 text-center transition-colors"><p class="text-[11px]">دوشنبه</p><p class="font-bold font-mono mt-1">۲۷</p></button>
+          <button onclick="selDay(this)" class="day shrink-0 w-16 py-3 rounded-2xl border border-canon-200 dark:border-white/10 text-center transition-colors"><p class="text-[11px]">سه‌شنبه</p><p class="font-bold font-mono mt-1">۲۸</p></button>
+          <button onclick="selDay(this)" class="day shrink-0 w-16 py-3 rounded-2xl border border-canon-200 dark:border-white/10 text-center transition-colors"><p class="text-[11px]">چهارشنبه</p><p class="font-bold font-mono mt-1">۲۹</p></button>
+        </div>
+
+        <div class="mt-6 grid grid-cols-3 sm:grid-cols-4 gap-3">
+          <button onclick="selSlot(this)" class="slot active py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۰۹:۰۰</button>
+          <button onclick="selSlot(this)" class="slot py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۱۰:۳۰</button>
+          <button onclick="selSlot(this)" class="slot py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۱۲:۰۰</button>
+          <button onclick="selSlot(this)" disabled class="py-2.5 rounded-xl border border-canon-100 dark:border-white/5 text-sm font-bold font-mono text-canon-300 dark:text-sand-300/20 line-through cursor-not-allowed">۱۳:۳۰</button>
+          <button onclick="selSlot(this)" class="slot py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۱۵:۰۰</button>
+          <button onclick="selSlot(this)" class="slot py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۱۶:۳۰</button>
+          <button onclick="selSlot(this)" class="slot py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۱۸:۰۰</button>
+          <button onclick="selSlot(this)" class="slot py-2.5 rounded-xl border border-canon-200 dark:border-white/10 text-sm font-bold font-mono transition-colors">۱۹:۳۰</button>
+        </div>
+
+        <label class="mt-6 flex items-center gap-3 cursor-pointer">
+          <input type="checkbox" class="w-4 h-4 rounded accent-canon-600">
+          <span class="text-sm">مشاوره آنلاین (تصویری) به‌جای حضوری</span>
+        </label>
+      </div>
+
+      <!-- Patient info -->
+      <div class="rounded-3xl glass shadow-glass p-6 sm:p-8 reveal r2">
+        <h3 class="font-bold mb-5">۲. اطلاعات بیمار</h3>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="text-sm font-bold mb-2 block">نام و نام خانوادگی</label>
+            <input type="text" placeholder="مثلاً پریسا محمدی" class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors">
+          </div>
+          <div>
+            <label class="text-sm font-bold mb-2 block">شماره موبایل</label>
+            <input type="tel" placeholder="09xxxxxxxxx" class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors">
+          </div>
+          <div>
+            <label class="text-sm font-bold mb-2 block">کد ملی</label>
+            <input type="text" placeholder="xxxxxxxxxx" class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors">
+          </div>
+          <div>
+            <label class="text-sm font-bold mb-2 block">تاریخ تولد</label>
+            <input type="text" placeholder="۱۳۷۰/۰۵/۱۲" class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="text-sm font-bold mb-2 block">توضیحات یا سابقه بیماری (اختیاری)</label>
+            <textarea rows="3" placeholder="مثلاً حساسیت دارویی، بیماری زمینه‌ای و..." class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors resize-none"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="rounded-3xl glass shadow-glass p-6 sm:p-8 reveal r3">
+        <h3 class="font-bold mb-5">۳. روش پرداخت</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="pay active flex items-center gap-3 p-4 rounded-2xl border-2 border-canon-200 dark:border-white/10 cursor-pointer transition-colors">
+            <input type="radio" name="pay" checked class="accent-canon-600">
+            <div>
+              <p class="font-bold text-sm">پرداخت آنلاین</p>
+              <p class="text-xs text-canon-500 dark:text-sand-300/60">درگاه بانکی امن</p>
+            </div>
+          </label>
+          <label class="pay flex items-center gap-3 p-4 rounded-2xl border-2 border-canon-200 dark:border-white/10 cursor-pointer transition-colors">
+            <input type="radio" name="pay" class="accent-canon-600">
+            <div>
+              <p class="font-bold text-sm">پرداخت در محل کلینیک</p>
+              <p class="text-xs text-canon-500 dark:text-sand-300/60">هنگام مراجعه حضوری</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <input type="text" placeholder="کد تخفیف (اختیاری)" class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors">
+          <button class="px-4 py-3 rounded-xl border border-canon-300 dark:border-white/15 font-bold text-sm hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">اعمال کد</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: ORDER SUMMARY -->
+    <aside class="lg:sticky lg:top-28 h-fit reveal r2">
+      <div class="rounded-3xl glass shadow-glass p-6 sm:p-7">
+        <h3 class="font-bold mb-5">خلاصه سفارش</h3>
+
+        <div class="flex gap-3 pb-5 border-b border-canon-200/60 dark:border-white/10">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=200&auto=format&fit=crop" class="w-16 h-16 rounded-xl object-cover" alt="بسته چکاپ قلب">
+          <div class="flex-1">
+            <p class="font-bold text-sm">بسته چکاپ کامل قلب</p>
+            <p class="text-xs text-canon-500 dark:text-sand-300/60 mt-1">شنبه، ساعت ۰۹:۰۰ · حضوری</p>
+            <p class="text-sm font-bold font-mono mt-1 text-canon-700 dark:text-saffron-300">۲,۹۵۰,۰۰۰ تومان</p>
+          </div>
+        </div>
+
+        <div class="py-5 space-y-2.5 text-sm border-b border-canon-200/60 dark:border-white/10">
+          <div class="flex justify-between"><span class="text-canon-500 dark:text-sand-300/60">جمع سفارش</span><span class="font-mono">۲,۹۵۰,۰۰۰</span></div>
+          <div class="flex justify-between"><span class="text-canon-500 dark:text-sand-300/60">تخفیف</span><span class="font-mono text-canon-600 dark:text-saffron-300">−۸۵۰,۰۰۰</span></div>
+          <div class="flex justify-between"><span class="text-canon-500 dark:text-sand-300/60">هزینه رزرو نوبت</span><span class="font-mono">رایگان</span></div>
+        </div>
+
+        <div class="flex justify-between items-center py-5">
+          <span class="font-bold">مبلغ قابل پرداخت</span>
+          <span class="text-xl font-black font-mono text-canon-700 dark:text-saffron-300">۲,۱۰۰,۰۰۰ <span class="text-xs font-normal">تومان</span></span>
+        </div>
+
+        <button class="w-full py-3.5 rounded-2xl bg-canon-600 text-sand-50 font-bold shadow-lg shadow-canon-600/30 hover:bg-canon-700 hover:-translate-y-0.5 transition-all">تایید و پرداخت نهایی</button>
+        <p class="mt-4 text-[11px] text-center text-canon-500 dark:text-sand-300/50 leading-relaxed">با ثبت سفارش، قوانین لغو و بازگشت وجه کلینیک آویسنا را می‌پذیرید.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="border-t border-canon-100 dark:border-white/5 bg-canon-50/60 dark:bg-white/[0.02] py-8 text-center text-xs text-canon-500/70 dark:text-sand-300/50">
+  © ۱۴۰۴ کلینیک آویسنا. تمامی حقوق محفوظ است.
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+  function applyTheme(t){
+    if(t === 'dark'){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+    else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+  }
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  applyTheme(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const now = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', now);
+    applyTheme(now);
+  });
+
+  function selDay(el){ document.querySelectorAll('.day').forEach(d=>d.classList.remove('active')); el.classList.add('active'); }
+  function selSlot(el){ document.querySelectorAll('.slot').forEach(s=>s.classList.remove('active')); el.classList.add('active'); }
+  document.querySelectorAll('.pay').forEach(label=>{
+    label.addEventListener('click', ()=>{
+      document.querySelectorAll('.pay').forEach(l=>l.classList.remove('active'));
+      label.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

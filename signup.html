@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثبت‌نام | کلینیک آویسنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      fontFamily: { sans: ['Vazirmatn','sans-serif'], mono: ['Space Grotesk','monospace'] },
+      colors: {
+        canon: { 50:'#F4F8F6', 100:'#E4EEEA', 200:'#C3DCD3', 300:'#96C1B2', 400:'#5E9C88', 500:'#2F7A64', 600:'#1F5E4F', 700:'#194A3F', 800:'#123830', 900:'#0B2521' },
+        saffron: { 300:'#F2CD8A', 400:'#E8B35A', 500:'#D99A38', 600:'#B87C24' },
+        sand: { 50:'#FBF8F1', 100:'#F6F0E3', 200:'#EEE4CE' }
+      },
+      boxShadow: { glass: '0 8px 32px 0 rgba(11,37,33,0.15)' },
+      keyframes: {
+        float: { '0%,100%':{ transform:'translateY(0px)'}, '50%':{ transform:'translateY(-14px)'} },
+        spinSlow: { from:{ transform:'rotate(0deg)'}, to:{ transform:'rotate(360deg)'} },
+        spinRevSlow: { from:{ transform:'rotate(360deg)'}, to:{ transform:'rotate(0deg)'} },
+        pulseDot: { '0%,100%':{ opacity:1, transform:'scale(1)'}, '50%':{ opacity:0.6, transform:'scale(1.4)'} },
+        drawLine: { to:{ 'stroke-dashoffset':0 } },
+        fadeUp: { from:{ opacity:0, transform:'translateY(24px)'}, to:{ opacity:1, transform:'translateY(0)'} },
+        blob: { '0%,100%':{ borderRadius:'42% 58% 65% 35% / 45% 40% 60% 55%'}, '50%':{ borderRadius:'58% 42% 35% 65% / 55% 60% 40% 45%'} }
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        spinSlow: 'spinSlow 18s linear infinite',
+        spinRevSlow: 'spinRevSlow 24s linear infinite',
+        pulseDot: 'pulseDot 2s ease-in-out infinite',
+        fadeUp: 'fadeUp .8s ease forwards',
+        blob: 'blob 9s ease-in-out infinite'
+      }
+    } }
+  }
+</script>
+<style>
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,0.35); }
+  .dark .glass { background: rgba(18,56,48,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .badge-float { animation: float 6s ease-in-out infinite; }
+  .pulse-path { stroke-dasharray: 900; stroke-dashoffset: 900; animation: drawLine 3s ease-out forwards .3s; }
+  .reveal { animation: fadeUp .8s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; } }
+  .r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}
+  .blob-mask{ animation: blob 9s ease-in-out infinite; }
+  .field:focus-within .field-icon{ color:#2F7A64; }
+  .dark .field:focus-within .field-icon{ color:#E8B35A; }
+</style>
+</head>
+<body class="bg-sand-50 dark:bg-canon-900 text-canon-900 dark:text-sand-100 font-sans min-h-screen transition-colors duration-500">
+
+<div class="min-h-screen grid lg:grid-cols-2">
+
+  <!-- Form side (first on this page) -->
+  <div class="relative flex items-center justify-center px-6 py-16 order-2 lg:order-1">
+    <button id="themeToggle" aria-label="تغییر پوسته" class="absolute top-6 left-6 w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+      <svg id="iconSun" class="w-5 h-5 text-saffron-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+      <svg id="iconMoon" class="w-5 h-5 text-canon-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+
+    <div class="w-full max-w-md reveal r1">
+      <a href="index.html" class="lg:hidden inline-flex items-center gap-2.5 mb-8">
+        <span class="w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold">آ</span>
+        <span class="font-extrabold">کلینیک آویسنا</span>
+      </a>
+
+      <h1 class="text-3xl font-black">ساخت حساب کاربری</h1>
+      <p class="mt-3 text-sm text-canon-600/70 dark:text-sand-300/60">در کمتر از یک دقیقه پرونده سلامت دیجیتال خود را بسازید.</p>
+
+      <!-- progress -->
+      <div class="mt-6 flex items-center gap-2">
+        <div class="h-1.5 flex-1 rounded-full bg-canon-600 dark:bg-saffron-400"></div>
+        <div class="h-1.5 flex-1 rounded-full bg-canon-200 dark:bg-white/10"></div>
+        <div class="h-1.5 flex-1 rounded-full bg-canon-200 dark:bg-white/10"></div>
+      </div>
+
+      <form class="mt-7 space-y-5" onsubmit="return false;">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="field">
+            <label class="text-sm font-bold mb-2 block">نام</label>
+            <input type="text" placeholder="مثلاً پریسا" class="w-full px-4 py-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors placeholder:text-canon-400/60 dark:placeholder:text-sand-300/30">
+          </div>
+          <div class="field">
+            <label class="text-sm font-bold mb-2 block">نام خانوادگی</label>
+            <input type="text" placeholder="مثلاً محمدی" class="w-full px-4 py-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors placeholder:text-canon-400/60 dark:placeholder:text-sand-300/30">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="text-sm font-bold mb-2 block">شماره موبایل</label>
+          <div class="relative">
+            <span class="field-icon absolute right-4 top-1/2 -translate-y-1/2 text-canon-400 dark:text-sand-300/40 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3M12 18h.008v.008H12V18z"/></svg>
+            </span>
+            <input type="tel" placeholder="09xxxxxxxxx" class="w-full pr-12 pl-4 py-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors placeholder:text-canon-400/60 dark:placeholder:text-sand-300/30">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="text-sm font-bold mb-2 block">ایمیل</label>
+          <div class="relative">
+            <span class="field-icon absolute right-4 top-1/2 -translate-y-1/2 text-canon-400 dark:text-sand-300/40 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0-.414.336-.75.75-.75h18a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-18a.75.75 0 01-.75-.75V6.75zm0 0l9.75 6.75L21.75 6.75"/></svg>
+            </span>
+            <input type="email" placeholder="name@email.com" class="w-full pr-12 pl-4 py-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors placeholder:text-canon-400/60 dark:placeholder:text-sand-300/30">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="text-sm font-bold mb-2 block">رمز عبور</label>
+          <div class="relative">
+            <span class="field-icon absolute right-4 top-1/2 -translate-y-1/2 text-canon-400 dark:text-sand-300/40 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+            </span>
+            <input type="password" placeholder="حداقل ۸ کاراکتر" class="w-full pr-12 pl-4 py-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-canon-200 dark:border-white/10 focus:border-canon-500 dark:focus:border-saffron-400 outline-none transition-colors placeholder:text-canon-400/60 dark:placeholder:text-sand-300/30">
+          </div>
+          <div class="mt-2 flex gap-1.5">
+            <span class="h-1 flex-1 rounded-full bg-canon-500"></span>
+            <span class="h-1 flex-1 rounded-full bg-canon-500"></span>
+            <span class="h-1 flex-1 rounded-full bg-canon-200 dark:bg-white/10"></span>
+          </div>
+        </div>
+
+        <label class="flex items-start gap-2.5 text-xs text-canon-600/80 dark:text-sand-300/60 cursor-pointer">
+          <input type="checkbox" class="w-4 h-4 mt-0.5 rounded accent-canon-600 shrink-0">
+          با <a href="#" class="font-bold text-canon-600 dark:text-saffron-300 hover:underline">قوانین و حریم خصوصی</a> کلینیک آویسنا موافقم.
+        </label>
+
+        <button class="w-full py-3.5 rounded-2xl bg-canon-600 text-sand-50 font-bold shadow-lg shadow-canon-600/30 hover:bg-canon-700 hover:-translate-y-0.5 transition-all">ایجاد حساب کاربری</button>
+      </form>
+
+      <p class="mt-8 text-center text-sm text-canon-600/70 dark:text-sand-300/60">
+        قبلاً ثبت‌نام کرده‌اید؟
+        <a href="login.html" class="font-bold text-canon-600 dark:text-saffron-300 hover:underline">وارد شوید</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Visual side -->
+  <div class="relative hidden lg:flex items-center justify-center overflow-hidden bg-canon-700 dark:bg-canon-900 order-1 lg:order-2">
+    <div class="absolute -top-32 -right-32 w-[26rem] h-[26rem] bg-saffron-400/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-[24rem] h-[24rem] bg-canon-500/30 rounded-full blur-3xl"></div>
+
+    <div class="relative z-10 text-center px-10">
+      <a href="index.html" class="inline-flex items-center gap-2.5 mb-10">
+        <span class="w-11 h-11 rounded-2xl bg-saffron-400 flex items-center justify-center text-canon-900 font-mono font-bold text-lg">آ</span>
+        <span class="text-sand-50 font-extrabold text-xl">کلینیک آویسنا</span>
+      </a>
+
+      <div class="relative w-72 h-72 mx-auto reveal r1">
+        <div class="absolute -inset-6 rounded-full border-2 border-dashed border-saffron-300/50 animate-spinSlow"></div>
+        <div class="absolute -inset-10 rounded-full border border-sand-50/10 animate-spinRevSlow"></div>
+        <svg class="absolute -inset-8 w-[calc(100%+4rem)] h-[calc(100%+4rem)] opacity-30" viewBox="0 0 300 300" fill="none">
+          <path class="pulse-path" d="M10 150 H100 L120 90 L150 210 L175 120 L195 150 H290" stroke="#F2CD8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="absolute inset-4 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/10">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover object-center" alt="ثبت‌نام کلینیک آویسنا">
+        </div>
+        <div class="absolute -right-10 bottom-6 badge-float glass shadow-glass rounded-2xl px-4 py-2.5 flex items-center gap-2">
+          <svg class="w-4 h-4 text-saffron-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="text-xs font-bold text-sand-50">ثبت‌نام کاملاً رایگان</span>
+        </div>
+      </div>
+
+      <h2 class="mt-10 text-2xl font-black text-sand-50 reveal r2">به خانواده آویسنا بپیوندید</h2>
+      <p class="mt-3 text-sm text-sand-200/70 max-w-xs mx-auto reveal r3">رزرو نوبت آنلاین، دسترسی به مشاوره تصویری و پیگیری نتایج آزمایش را تجربه کنید.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+  function applyTheme(t){
+    if(t === 'dark'){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+    else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+  }
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  applyTheme(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const now = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', now);
+    applyTheme(now);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>علائم خاموش بیماری قلبی | مجله سلامت آویسنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      fontFamily: { sans: ['Vazirmatn','sans-serif'], mono: ['Space Grotesk','monospace'] },
+      colors: {
+        canon: { 50:'#F4F8F6', 100:'#E4EEEA', 200:'#C3DCD3', 300:'#96C1B2', 400:'#5E9C88', 500:'#2F7A64', 600:'#1F5E4F', 700:'#194A3F', 800:'#123830', 900:'#0B2521' },
+        saffron: { 300:'#F2CD8A', 400:'#E8B35A', 500:'#D99A38', 600:'#B87C24' },
+        sand: { 50:'#FBF8F1', 100:'#F6F0E3', 200:'#EEE4CE' }
+      },
+      boxShadow: { glass: '0 8px 32px 0 rgba(11,37,33,0.15)' },
+      keyframes: {
+        spinSlow: { from:{ transform:'rotate(0deg)'}, to:{ transform:'rotate(360deg)'} },
+        fadeUp: { from:{ opacity:0, transform:'translateY(24px)'}, to:{ opacity:1, transform:'translateY(0)'} }
+      },
+      animation: { spinSlow: 'spinSlow 18s linear infinite', fadeUp: 'fadeUp .8s ease forwards' }
+    } }
+  }
+</script>
+<style>
+  html{ scroll-behavior:smooth; }
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,0.35); }
+  .dark .glass { background: rgba(18,56,48,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-nav { background: rgba(251,248,241,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .dark .glass-nav { background: rgba(11,37,33,0.65); }
+  .reveal { animation: fadeUp .8s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; } }
+  .r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}
+  .prose-custom p{ margin-bottom:1.4rem; line-height:2.1; color:inherit; }
+  .prose-custom h2{ font-weight:800; font-size:1.4rem; margin-top:2.2rem; margin-bottom:1rem; }
+  .prose-custom blockquote{ border-right:4px solid #2F7A64; padding:.75rem 1.25rem; background:rgba(47,122,100,.06); border-radius:0 1rem 1rem 0; margin:1.5rem 0; font-weight:600; }
+  .dark .prose-custom blockquote{ border-color:#E8B35A; background:rgba(232,179,90,.08); }
+</style>
+</head>
+<body class="bg-sand-50 dark:bg-canon-900 text-canon-900 dark:text-sand-100 font-sans transition-colors duration-500">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-canon-100/60 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="relative w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold text-lg">آ
+        <span class="absolute -inset-1 rounded-2xl border border-canon-400/40 animate-spinSlow"></span>
+      </span>
+      <div class="leading-tight">
+        <p class="font-extrabold text-lg">کلینیک آویسنا</p>
+        <p class="text-[11px] tracking-widest text-canon-500 dark:text-saffron-300 font-mono uppercase">AVICENNA CLINIC</p>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium">
+      <a href="index.html#services" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">خدمات</a>
+      <a href="index.html#doctors" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">پزشکان</a>
+      <a href="product.html" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">محصولات و بسته‌ها</a>
+      <a href="blog.html" class="text-canon-600 dark:text-saffron-300 font-bold">مجله سلامت</a>
+      <a href="index.html#contact" class="hover:text-canon-500 dark:hover:text-saffron-300 transition-colors">تماس با ما</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" aria-label="تغییر پوسته" class="w-11 h-11 rounded-full glass shadow-glass flex items-center justify-center hover:scale-105 transition-transform">
+        <svg id="iconSun" class="w-5 h-5 text-saffron-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/></svg>
+        <svg id="iconMoon" class="w-5 h-5 text-canon-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="signup.html" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-canon-600 text-sand-50 hover:bg-canon-700 shadow-lg shadow-canon-600/25 transition-all hover:-translate-y-0.5">نوبت‌دهی آنلاین</a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<section class="pt-40 pb-10 max-w-3xl mx-auto px-5 md:px-8 text-center">
+  <div class="flex items-center justify-center gap-2 text-xs text-canon-500 dark:text-sand-300/60 reveal r1">
+    <a href="blog.html" class="hover:text-canon-600 dark:hover:text-saffron-300">مجله سلامت</a><span>/</span><span>قلب و عروق</span>
+  </div>
+  <h1 class="mt-5 text-3xl md:text-4xl font-black leading-relaxed reveal r2">علائم خاموش بیماری قلبی که اغلب نادیده گرفته می‌شوند</h1>
+  <div class="mt-6 flex items-center justify-center gap-3 reveal r3">
+    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=100&auto=format&fit=crop" class="w-10 h-10 rounded-full object-cover" alt="دکتر سارا احمدی">
+    <div class="text-right">
+      <p class="text-sm font-bold">دکتر سارا احمدی</p>
+      <p class="text-xs text-canon-500 dark:text-sand-300/60">۱۵ مرداد ۱۴۰۴ · ۸ دقیقه مطالعه</p>
+    </div>
+  </div>
+</section>
+
+<!-- COVER IMAGE -->
+<div class="max-w-5xl mx-auto px-5 md:px-8 reveal r1">
+  <div class="rounded-[2rem] overflow-hidden shadow-2xl h-56 sm:h-80 md:h-[26rem]">
+    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?q=80&w=1400&auto=format&fit=crop" class="w-full h-full object-cover" alt="بیماری قلبی">
+  </div>
+</div>
+
+<!-- ARTICLE BODY + SIDEBAR -->
+<section class="max-w-5xl mx-auto px-5 md:px-8 py-16 grid lg:grid-cols-[1fr_280px] gap-12">
+  <article class="prose-custom text-[15px] text-canon-700 dark:text-sand-200/85 reveal r1">
+    <p>خیلی از بیماری‌های قلبی-عروقی در ماه‌ها یا حتی سال‌های ابتدایی خود، بدون هیچ نشانه واضحی پیش می‌روند. به همین دلیل است که پزشکان آن‌ها را «قاتل خاموش» می‌نامند. در این مقاله به بررسی نشانه‌های ظریفی می‌پردازیم که ممکن است به‌راحتی نادیده گرفته شوند.</p>
+
+    <blockquote>«بسیاری از بیمارانی که با حمله قلبی به اورژانس مراجعه می‌کنند، ماه‌ها قبل نشانه‌های خفیفی داشته‌اند که آن را به خستگی یا استرس نسبت داده بودند.» — دکتر سارا احمدی</blockquote>
+
+    <h2>۱. خستگی غیرمعمول</h2>
+    <p>احساس خستگی مداوم، حتی پس از استراحت کافی، می‌تواند نشانه‌ای از کاهش کارایی پمپاژ خون توسط قلب باشد. این حالت به‌ویژه در زنان شایع‌تر است و اغلب با خستگی‌های روزمره اشتباه گرفته می‌شود.</p>
+
+    <h2>۲. تنگی نفس خفیف در فعالیت‌های روزمره</h2>
+    <p>اگر بالا رفتن از پله‌هایی که قبلاً برایتان راحت بود، اکنون شما را به نفس‌نفس زدن می‌اندازد، این موضوع را جدی بگیرید. تنگی نفس تدریجی یکی از رایج‌ترین علائم اولیه نارسایی قلبی است.</p>
+
+    <h2>۳. درد یا فشار خفیف در قفسه سینه</h2>
+    <p>این درد لزوماً شدید نیست؛ گاهی فقط احساس فشار یا سنگینی خفیف است که با استراحت برطرف می‌شود. با این حال، تکرار این حس در طول چند هفته نیازمند بررسی تخصصی است.</p>
+
+    <h2>چه زمانی باید به پزشک مراجعه کرد؟</h2>
+    <p>در صورت مشاهده هر یک از علائم بالا به‌طور مکرر، توصیه می‌شود در اسرع وقت نوبت ویزیت قلب رزرو کنید. تشخیص زودهنگام، شانس درمان موفق را به‌طور چشمگیری افزایش می‌دهد.</p>
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="space-y-6 reveal r2">
+    <div class="rounded-3xl glass shadow-glass p-6">
+      <h4 class="font-bold mb-4 text-sm">نویسنده مقاله</h4>
+      <div class="flex items-center gap-3">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=150&auto=format&fit=crop" class="w-14 h-14 rounded-2xl object-cover" alt="دکتر سارا احمدی">
+        <div>
+          <p class="font-bold text-sm">دکتر سارا احمدی</p>
+          <p class="text-xs text-canon-500 dark:text-sand-300/60">فوق تخصص قلب و عروق</p>
+        </div>
+      </div>
+      <a href="index.html#doctors" class="mt-4 block text-center py-2.5 rounded-full border border-canon-200 dark:border-white/10 text-sm font-bold hover:bg-canon-100/60 dark:hover:bg-white/5 transition-colors">رزرو نوبت با ایشان</a>
+    </div>
+
+    <div class="rounded-3xl glass shadow-glass p-6">
+      <h4 class="font-bold mb-4 text-sm">مقالات مرتبط</h4>
+      <div class="space-y-4">
+        <a href="blog-post.html" class="flex gap-3 group">
+          <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=150&auto=format&fit=crop" class="w-16 h-16 rounded-xl object-cover shrink-0" alt="">
+          <p class="text-sm font-semibold leading-snug group-hover:text-canon-600 dark:group-hover:text-saffron-300">۷ عادت غذایی برای سلامت قلب</p>
+        </a>
+        <a href="blog-post.html" class="flex gap-3 group">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=150&auto=format&fit=crop" class="w-16 h-16 rounded-xl object-cover shrink-0" alt="">
+          <p class="text-sm font-semibold leading-snug group-hover:text-canon-600 dark:group-hover:text-saffron-300">۲۰ دقیقه پیاده‌روی؛ ساده‌ترین نسخه پزشک</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="rounded-3xl bg-canon-700 dark:bg-canon-800 p-6 text-center">
+      <p class="text-sand-50 font-bold">نگران قلب خود هستید؟</p>
+      <p class="text-sand-200/70 text-xs mt-2">همین امروز نوبت چکاپ قلب رزرو کنید.</p>
+      <a href="checkout.html" class="mt-4 inline-block px-5 py-2.5 rounded-full bg-saffron-400 text-canon-900 text-sm font-bold hover:bg-saffron-300 transition-colors">رزرو نوبت</a>
+    </div>
+  </aside>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="border-t border-canon-100 dark:border-white/5 bg-canon-50/60 dark:bg-white/[0.02]">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <span class="w-10 h-10 rounded-2xl bg-canon-600 dark:bg-saffron-400 flex items-center justify-center text-sand-50 dark:text-canon-900 font-mono font-bold">آ</span>
+        <p class="font-extrabold">کلینیک آویسنا</p>
+      </div>
+      <p class="text-sm text-canon-600/70 dark:text-sand-300/60 leading-relaxed">همراه سلامت شما، از تشخیص تا درمان.</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">دسترسی سریع</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="index.html#services" class="hover:text-canon-600 dark:hover:text-saffron-300">خدمات درمانی</a></li>
+        <li><a href="blog.html" class="hover:text-canon-600 dark:hover:text-saffron-300">مجله سلامت</a></li>
+        <li><a href="product.html" class="hover:text-canon-600 dark:hover:text-saffron-300">بسته‌های ویزیت</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">حساب کاربری</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li><a href="login.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ورود به حساب</a></li>
+        <li><a href="signup.html" class="hover:text-canon-600 dark:hover:text-saffron-300">ثبت‌نام</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm">تماس با ما</h4>
+      <ul class="space-y-2.5 text-sm text-canon-600/70 dark:text-sand-300/60">
+        <li>تهران، خیابان ولیعصر، پلاک ۱۲</li>
+        <li dir="ltr" class="text-right">021-88991122</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-canon-100 dark:border-white/5 py-6 text-center text-xs text-canon-500/70 dark:text-sand-300/50">
+    © ۱۴۰۴ کلینیک آویسنا. تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+  function applyTheme(t){
+    if(t === 'dark'){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+    else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+  }
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+  applyTheme(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const now = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', now);
+    applyTheme(now);
+  });
+</script>
+</body>
+</html>
